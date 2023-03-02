@@ -1,0 +1,6 @@
+Name: Library_web
+Entity: 
+	+ Admin: Ad_name, Ad_pass, Update_book, Edit_mem, Update_Acc.
+	+ Members: Mem_ID, Username, Password, Name, Phone_num, Email, Birth_date, Update_acc
+	+ Books: Book_ID, Name, Author, Republish, Category
+	+ Rent: Rent_ID, Rent_date, Return_date, Rent_price
