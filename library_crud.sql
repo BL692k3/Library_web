@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2023 at 05:22 AM
+-- Generation Time: Mar 04, 2023 at 09:48 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -71,7 +71,12 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20230303014722', '2023-03-03 02:48:09', 801),
 ('DoctrineMigrations\\Version20230303024150', '2023-03-03 03:41:57', 70),
 ('DoctrineMigrations\\Version20230303025009', '2023-03-03 03:50:14', 192),
-('DoctrineMigrations\\Version20230303031008', '2023-03-03 04:10:14', 153);
+('DoctrineMigrations\\Version20230303031008', '2023-03-03 04:10:14', 153),
+('DoctrineMigrations\\Version20230303125919', '2023-03-03 13:59:36', 706),
+('DoctrineMigrations\\Version20230304064335', '2023-03-04 07:43:44', 507),
+('DoctrineMigrations\\Version20230304083241', '2023-03-04 09:32:49', 104),
+('DoctrineMigrations\\Version20230304084010', '2023-03-04 09:40:15', 187),
+('DoctrineMigrations\\Version20230304084658', '2023-03-04 09:47:09', 94);
 
 -- --------------------------------------------------------
 
@@ -81,10 +86,11 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 
 CREATE TABLE `member` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
+  `email` varchar(180) NOT NULL,
+  `roles` longtext NOT NULL COMMENT '(DC2Type:json)',
   `password` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `phone_num` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
   `birth_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -92,17 +98,17 @@ CREATE TABLE `member` (
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`id`, `username`, `password`, `phone_num`, `email`, `birth_date`) VALUES
-(1, 'ribbontroubling', '12345678', '(848)37923707', 'haidang84@hotmail.com', '2005-11-27'),
-(2, 'southerngolden', '12345678', '(848)39605209', 'duymy.dinh97@yahoo.com', '2005-07-21'),
-(3, 'injurychance', '12345678', '(844)38243564', 'luongthien.tran11@gmail.com', '2005-11-27'),
-(4, 'simplisticparent', '12345678', '(848)38940662', 'viendong.truong@gmail.com', '1986-05-17'),
-(5, 'trainedput', '12345678', '(848)38420541', 'kieumy_lam21@yahoo.com', '1995-05-08'),
-(6, 'wheneverbadelynge', '12345678', '(844)37199267', 'quanglinh92@yahoo.com', '2000-10-10'),
-(7, 'globaldamaged', '12345678', '(848)38943785', 'dinhphu59@yahoo.com', '1999-12-03'),
-(8, 'cotermine', '12345678', '08.39.163.120', 'hanlam43@gmail.com', '1984-03-31'),
-(9, 'overlookedlice', '12345678', '(848)38221758', 'vanhuong0@yahoo.com', '1994-02-07'),
-(10, 'agilediscussion', '12345678', '(848)39491199', 'thanhbinh_phan21@hotmail.com', '1980-02-15');
+INSERT INTO `member` (`id`, `email`, `roles`, `password`, `username`, `phone_num`, `birth_date`) VALUES
+(1, 'haidang84@hotmail.com', '', '12345678', 'ribbontroubling', '(848)37923707', '2005-11-27'),
+(2, 'duymy.dinh97@yahoo.com', '', '12345678', 'southerngolden', '(848)39605209', '2005-07-21'),
+(3, 'luongthien.tran11@gmail.com', '', '12345678', 'injurychance', '(844)38243564', '2005-11-27'),
+(4, 'viendong.truong@gmail.com', '', '12345678', 'simplisticparent', '(848)38940662', '1986-05-17'),
+(5, 'kieumy_lam21@yahoo.com', '', '12345678', 'trainedput', '(848)38420541', '1995-05-08'),
+(6, 'quanglinh92@yahoo.com', '', '12345678', 'wheneverbadelynge', '(844)37199267', '2000-10-10'),
+(7, 'dinhphu59@yahoo.com', '', '12345678', 'globaldamaged', '(848)38943785', '1999-12-03'),
+(8, 'hanlam43@gmail.com', '', '12345678', 'cotermine', '08.39.163.120', '1984-03-31'),
+(9, 'vanhuong0@yahoo.com', '', '12345678', 'overlookedlice', '(848)38221758', '1994-02-07'),
+(10, 'thanhbinh_phan21@hotmail.com', '', '12345678', 'agilediscussion', '(848)39491199', '1980-02-15');
 
 -- --------------------------------------------------------
 
@@ -128,11 +134,25 @@ CREATE TABLE `messenger_messages` (
 
 CREATE TABLE `rent` (
   `id` int(11) NOT NULL,
-  `mem_id` int(11) NOT NULL,
   `book_id` int(11) NOT NULL,
   `rent_date` date NOT NULL,
   `return_date` date NOT NULL,
-  `rent_price` int(11) NOT NULL
+  `rent_price` int(11) NOT NULL,
+  `mem_id` int(11) NOT NULL,
+  `mem_id_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `email` varchar(180) NOT NULL,
+  `roles` longtext NOT NULL COMMENT '(DC2Type:json)',
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -155,7 +175,8 @@ ALTER TABLE `doctrine_migration_versions`
 -- Indexes for table `member`
 --
 ALTER TABLE `member`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_70E4FA78E7927C74` (`email`);
 
 --
 -- Indexes for table `messenger_messages`
@@ -171,8 +192,16 @@ ALTER TABLE `messenger_messages`
 --
 ALTER TABLE `rent`
   ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_2784DCC16A2B381` (`book_id`),
   ADD KEY `IDX_2784DCC43676E6` (`mem_id`),
-  ADD KEY `IDX_2784DCC16A2B381` (`book_id`);
+  ADD KEY `IDX_2784DCC7DF122CF` (`mem_id_id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -203,6 +232,12 @@ ALTER TABLE `rent`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -211,7 +246,8 @@ ALTER TABLE `rent`
 --
 ALTER TABLE `rent`
   ADD CONSTRAINT `FK_2784DCC16A2B381` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`),
-  ADD CONSTRAINT `FK_2784DCC43676E6` FOREIGN KEY (`mem_id`) REFERENCES `member` (`id`);
+  ADD CONSTRAINT `FK_2784DCC43676E6` FOREIGN KEY (`mem_id`) REFERENCES `member` (`id`),
+  ADD CONSTRAINT `FK_2784DCC7DF122CF` FOREIGN KEY (`mem_id_id`) REFERENCES `member` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

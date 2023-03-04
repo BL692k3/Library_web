@@ -44,6 +44,12 @@ class Rent
      */
     private $Book;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=member::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $mem_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +111,18 @@ class Rent
     public function setBook(?Book $Book): self
     {
         $this->Book = $Book;
+
+        return $this;
+    }
+
+    public function getMemId(): ?member
+    {
+        return $this->mem_id;
+    }
+
+    public function setMemId(?member $mem_id): self
+    {
+        $this->mem_id = $mem_id;
 
         return $this;
     }
