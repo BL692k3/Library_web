@@ -596,7 +596,18 @@ class ComposerStaticInite513ced2416460a9720d33708f64cb30
     );
 
     public static $classMap = array (
+        'App\\Controller\\BookController' => __DIR__ . '/../..' . '/src/Controller/BookController.php',
+        'App\\Controller\\MemberController' => __DIR__ . '/../..' . '/src/Controller/MemberController.php',
+        'App\\Controller\\RentController' => __DIR__ . '/../..' . '/src/Controller/RentController.php',
+        'App\\Controller\\SignInController' => __DIR__ . '/../..' . '/src/Controller/SignInController.php',
+        'App\\Controller\\SignUpController' => __DIR__ . '/../..' . '/src/Controller/SignUpController.php',
+        'App\\Entity\\Book' => __DIR__ . '/../..' . '/src/Entity/Book.php',
+        'App\\Entity\\Member' => __DIR__ . '/../..' . '/src/Entity/Member.php',
+        'App\\Entity\\Rent' => __DIR__ . '/../..' . '/src/Entity/Rent.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\BookRepository' => __DIR__ . '/../..' . '/src/Repository/BookRepository.php',
+        'App\\Repository\\MemberRepository' => __DIR__ . '/../..' . '/src/Repository/MemberRepository.php',
+        'App\\Repository\\RentRepository' => __DIR__ . '/../..' . '/src/Repository/RentRepository.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Collator' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
