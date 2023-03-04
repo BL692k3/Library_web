@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit327df746d24cc06a2a08d400ff3bfdc6
+class ComposerStaticInite513ced2416460a9720d33708f64cb30
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -596,7 +596,18 @@ class ComposerStaticInit327df746d24cc06a2a08d400ff3bfdc6
     );
 
     public static $classMap = array (
+        'App\\Controller\\BookController' => __DIR__ . '/../..' . '/src/Controller/BookController.php',
+        'App\\Controller\\MemberController' => __DIR__ . '/../..' . '/src/Controller/MemberController.php',
+        'App\\Controller\\RentController' => __DIR__ . '/../..' . '/src/Controller/RentController.php',
+        'App\\Controller\\SignInController' => __DIR__ . '/../..' . '/src/Controller/SignInController.php',
+        'App\\Controller\\SignUpController' => __DIR__ . '/../..' . '/src/Controller/SignUpController.php',
+        'App\\Entity\\Book' => __DIR__ . '/../..' . '/src/Entity/Book.php',
+        'App\\Entity\\Member' => __DIR__ . '/../..' . '/src/Entity/Member.php',
+        'App\\Entity\\Rent' => __DIR__ . '/../..' . '/src/Entity/Rent.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\BookRepository' => __DIR__ . '/../..' . '/src/Repository/BookRepository.php',
+        'App\\Repository\\MemberRepository' => __DIR__ . '/../..' . '/src/Repository/MemberRepository.php',
+        'App\\Repository\\RentRepository' => __DIR__ . '/../..' . '/src/Repository/RentRepository.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Collator' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -6534,9 +6545,9 @@ class ComposerStaticInit327df746d24cc06a2a08d400ff3bfdc6
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit327df746d24cc06a2a08d400ff3bfdc6::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit327df746d24cc06a2a08d400ff3bfdc6::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit327df746d24cc06a2a08d400ff3bfdc6::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInite513ced2416460a9720d33708f64cb30::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInite513ced2416460a9720d33708f64cb30::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInite513ced2416460a9720d33708f64cb30::$classMap;
 
         }, null, ClassLoader::class);
     }

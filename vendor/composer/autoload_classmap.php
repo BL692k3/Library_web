@@ -6,7 +6,18 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controller\\BookController' => $baseDir . '/src/Controller/BookController.php',
+    'App\\Controller\\MemberController' => $baseDir . '/src/Controller/MemberController.php',
+    'App\\Controller\\RentController' => $baseDir . '/src/Controller/RentController.php',
+    'App\\Controller\\SignInController' => $baseDir . '/src/Controller/SignInController.php',
+    'App\\Controller\\SignUpController' => $baseDir . '/src/Controller/SignUpController.php',
+    'App\\Entity\\Book' => $baseDir . '/src/Entity/Book.php',
+    'App\\Entity\\Member' => $baseDir . '/src/Entity/Member.php',
+    'App\\Entity\\Rent' => $baseDir . '/src/Entity/Rent.php',
     'App\\Kernel' => $baseDir . '/src/Kernel.php',
+    'App\\Repository\\BookRepository' => $baseDir . '/src/Repository/BookRepository.php',
+    'App\\Repository\\MemberRepository' => $baseDir . '/src/Repository/MemberRepository.php',
+    'App\\Repository\\RentRepository' => $baseDir . '/src/Repository/RentRepository.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Collator' => $vendorDir . '/symfony/intl/Resources/stubs/Collator.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
