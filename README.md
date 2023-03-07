@@ -1,8 +1,8 @@
 ﻿# Library_web
 Ae thấy còn thiếu trang gì thì nói ở đây. T sẽ ghi lại trang cần thiết và quá trình.
-(HT): hoàn thành
-(CX): Chưa xong
-(CSS): Trang chưa có CSS
+.(HT): hoàn thành
+.(CX): Chưa xong
+.(CSS): Trang chưa có CSS.
 
 Những thứ cần thiết cho trang web:
 1.     Trang chủ (CX) (CSS)
