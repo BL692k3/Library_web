@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2023 at 09:48 AM
+-- Generation Time: Mar 07, 2023 at 07:04 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -68,15 +68,7 @@ CREATE TABLE `doctrine_migration_versions` (
 --
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20230303014722', '2023-03-03 02:48:09', 801),
-('DoctrineMigrations\\Version20230303024150', '2023-03-03 03:41:57', 70),
-('DoctrineMigrations\\Version20230303025009', '2023-03-03 03:50:14', 192),
-('DoctrineMigrations\\Version20230303031008', '2023-03-03 04:10:14', 153),
-('DoctrineMigrations\\Version20230303125919', '2023-03-03 13:59:36', 706),
-('DoctrineMigrations\\Version20230304064335', '2023-03-04 07:43:44', 507),
-('DoctrineMigrations\\Version20230304083241', '2023-03-04 09:32:49', 104),
-('DoctrineMigrations\\Version20230304084010', '2023-03-04 09:40:15', 187),
-('DoctrineMigrations\\Version20230304084658', '2023-03-04 09:47:09', 94);
+('DoctrineMigrations\\Version20230307175649', '2023-03-07 18:58:36', 71);
 
 -- --------------------------------------------------------
 
@@ -142,19 +134,6 @@ CREATE TABLE `rent` (
   `mem_id_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `email` varchar(180) NOT NULL,
-  `roles` longtext NOT NULL COMMENT '(DC2Type:json)',
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Indexes for dumped tables
 --
@@ -197,13 +176,6 @@ ALTER TABLE `rent`
   ADD KEY `IDX_2784DCC7DF122CF` (`mem_id_id`);
 
 --
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -229,12 +201,6 @@ ALTER TABLE `messenger_messages`
 -- AUTO_INCREMENT for table `rent`
 --
 ALTER TABLE `rent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

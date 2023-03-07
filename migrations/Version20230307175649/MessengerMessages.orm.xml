@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Version20230307175649\MessengerMessages" table="messenger_messages">
+    <indexes>
+      <index name="IDX_75EA56E0E3BD61CE" columns="available_at"/>
+      <index name="IDX_75EA56E016BA31DB" columns="delivered_at"/>
+      <index name="IDX_75EA56E0FB7336F0" columns="queue_name"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="body" type="text" column="body" length="0" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="headers" type="text" column="headers" length="0" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="queueName" type="string" column="queue_name" length="190" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
+    <field name="availableAt" type="datetime" column="available_at" nullable="false"/>
+    <field name="deliveredAt" type="datetime" column="delivered_at" nullable="true"/>
+  </entity>
+</doctrine-mapping>
