@@ -7,7 +7,12 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+    <div class="container">
+    {{ render(controller(
+        'App\\Controller\\SearchController::searchBar'
+    )) }}
         {% block body %}{% endblock %}
+    </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
