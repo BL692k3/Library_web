@@ -153,18 +153,6 @@ Tests for the existence of an element that satisfies the given predicate.
         return $value === 'first';
     }); // true
 
-findFirst
----------
-
-Returns the first element of this collection that satisfies the given predicate.
-
-.. code-block:: php
-    $collection = new Collection([1, 2, 3, 2, 1]);
-
-    $one = $collection->findFirst(function(int $key, int $value): bool {
-        return $value > 2 && $key > 1;
-    }); // 3
-
 filter
 ------
 
@@ -233,18 +221,6 @@ Applies the given function to each element in the collection and returns a new c
     $mappedCollection = $collection->map(function($value) {
         return $value + 1;
     }); // [2, 3, 4]
-
-reduce
-------
-
-Applies iteratively the given function to each element in the collection, so as to reduce the collection to a single value.
-
-.. code-block:: php
-    $collection = new ArrayCollection([1, 2, 3]);
-
-    $reduce = $collection->reduce(function(int $accumulator, int $value): int {
-        return $accumulator + $value;
-    }, 0); // 6
 
 next
 ----
@@ -331,17 +307,17 @@ matching
 --------
 
 Selects all elements from a selectable that match the expression and
-returns a new collection containing these elements and preserved keys.
+returns a new collection containing these elements.
 
 .. code-block:: php
     use Doctrine\Common\Collections\Criteria;
     use Doctrine\Common\Collections\Expr\Comparison;
 
     $collection = new ArrayCollection([
-        'wage' => [
+        [
             'name' => 'jwage',
         ],
-        'roman' => [
+        [
             'name' => 'romanb',
         ],
     ]);
@@ -352,6 +328,6 @@ returns a new collection containing these elements and preserved keys.
 
     $criteria->where($expr);
 
-    $matchingCollection = $collection->matching($criteria); // [ 'wage' => [ 'name' => 'jwage' ]]
+    $matched = $collection->matching($criteria); // ['jwage']
 
 You can read more about expressions :ref:`here <expressions>`.

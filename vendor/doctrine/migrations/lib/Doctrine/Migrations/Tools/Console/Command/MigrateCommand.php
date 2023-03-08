@@ -215,10 +215,6 @@ EOT
             $writer->write($path, $plan->getDirection(), $sql);
         }
 
-        $this->io->success(sprintf(
-            'Successfully migrated to version : %s',
-            $version
-        ));
         $this->io->newLine();
 
         return 0;

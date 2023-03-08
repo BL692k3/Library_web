@@ -6,4 +6,3 @@
     expression-builder
     derived-collections
     lazy-collections
-    serialization

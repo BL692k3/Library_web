@@ -279,7 +279,7 @@ class DependencyFactory
     public function getSchemaDiffProvider(): SchemaDiffProvider
     {
         return $this->getDependency(SchemaDiffProvider::class, function (): LazySchemaDiffProvider {
-            return new LazySchemaDiffProvider(
+            return LazySchemaDiffProvider::fromDefaultProxyFactoryConfiguration(
                 new DBALSchemaDiffProvider(
                     $this->getConnection()->createSchemaManager(),
                     $this->getConnection()->getDatabasePlatform()
