@@ -5,8 +5,7 @@
     "\\src\\Controller",
     "\\src\\Entity",
     "\\src\\Repository",
-    "\\templates",
-    "\\templates\\book"
+    "\\templates"
   ],
   "SelectedNode": "\\src\\Controller",
   "PreviewInSolutionExplorer": false

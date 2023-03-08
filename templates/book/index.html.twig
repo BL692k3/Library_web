@@ -1,28 +1,32 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-    <h1>Books list</h1>
 
-    <table>
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Author</th>
-            <th>Category</th>
-            <th>Republish</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for book in books %}
+    <div class="bs-example" data-example-id="striped-table">
+        <table class="table table-striped">
+            <thead>
             <tr>
-                <td>{{ book.id }}</td>
-                <td><a href="{{ path('book_show', { 'id': book.id }) }}">{{ book.name }}</a></td>
-                <td>{{ book.author }}</td>
-                <td>{{ book.category }}</td>
-                <td>{{ book.republish }}</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Republish</th>
             </tr>
-        {% endfor %}
+            </thead>
+            <tbody>
+            {% for book in books %}
+                <tr>
+                    <th scope="row">{{ book.id }}</th>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.category }}</td>
+                    <td>{{ book.republish }}</td>
+                    <td>
+                        <a href="{{ path('book_show', { 'id': book.id }) }}" class='btn btn-success'>View</a>
+                        <a href="{{ path('book_edit', {'id': book.id}) }}" class='btn btn-default'>Edit</a>
+                        <a href="{{ path('book_delete', {'id': book.id}) }}" class='btn btn-danger'>Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 

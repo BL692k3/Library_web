@@ -14,6 +14,10 @@ return array(
     'App\\Entity\\Book' => $baseDir . '/src/Entity/Book.php',
     'App\\Entity\\Member' => $baseDir . '/src/Entity/Member.php',
     'App\\Entity\\Rent' => $baseDir . '/src/Entity/Rent.php',
+<<<<<<< Updated upstream
+=======
+    'App\\Form\\BookType' => $baseDir . '/src/Form/BookType.php',
+>>>>>>> Stashed changes
     'App\\Kernel' => $baseDir . '/src/Kernel.php',
     'App\\Repository\\BookRepository' => $baseDir . '/src/Repository/BookRepository.php',
     'App\\Repository\\MemberRepository' => $baseDir . '/src/Repository/MemberRepository.php',

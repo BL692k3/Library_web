@@ -590,6 +590,10 @@ class ComposerStaticInite513ced2416460a9720d33708f64cb30
         'App\\Entity\\Book' => __DIR__ . '/../..' . '/src/Entity/Book.php',
         'App\\Entity\\Member' => __DIR__ . '/../..' . '/src/Entity/Member.php',
         'App\\Entity\\Rent' => __DIR__ . '/../..' . '/src/Entity/Rent.php',
+<<<<<<< Updated upstream
+=======
+        'App\\Form\\BookType' => __DIR__ . '/../..' . '/src/Form/BookType.php',
+>>>>>>> Stashed changes
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
         'App\\Repository\\BookRepository' => __DIR__ . '/../..' . '/src/Repository/BookRepository.php',
         'App\\Repository\\MemberRepository' => __DIR__ . '/../..' . '/src/Repository/MemberRepository.php',
