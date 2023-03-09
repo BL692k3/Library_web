@@ -63,15 +63,50 @@ class BookRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
     /**
       * @return Book[]
       */
-    public function findByName($value)
+    public function sortByID()
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.name =:val')
-            ->setParameter('val',$value)
+    return $this->createQueryBuilder('c')
             ->orderBy('c.id','ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+      * @return Book[]
+      */
+    public function sortByName()
+    {
+    return $this->createQueryBuilder('c')
+            ->orderBy('c.Name','ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+      * @return Book[]
+      */
+    public function sortByAuthor()
+    {
+    return $this->createQueryBuilder('c')
+            ->orderBy('c.Author','ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+      * @return Book[]
+      */
+    public function sortByCategory()
+    {
+    return $this->createQueryBuilder('c')
+            ->orderBy('c.Category','ASC')
             ->getQuery()
             ->getResult()
         ;

@@ -1,9 +1,16 @@
-{% extends 'base.html.twig' %}
+﻿{% extends 'base.html.twig' %}
 {% block body %}
 
     <div class="bs-example" data-example-id="striped-table">
         <table class="table table-striped">
             <thead>
+            <tr>
+                <th><a href="{{ path('id_asc') }}">Sort by ID</a></th>
+                <th><a href="{{ path('name_asc') }}">Sort by name</a></th>
+                <th><a href="{{ path('author_asc') }}">Sort by author</a></th>
+                <th><a href="{{ path('cate_asc') }}">Sort by category</a></th>
+                <th></th>
+            </tr>
             <tr>
                 <th>ID</th>
                 <th>Name</th>

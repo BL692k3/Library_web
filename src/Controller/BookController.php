@@ -114,4 +114,55 @@ class BookController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/book_sort_ID", name="id_asc")
+     */
+    public function sortIdAction()
+    {
+        $books = $this->getDoctrine()
+            ->getRepository('App\Entity\Book')
+            ->sortByID();
+        return $this->render('book/index.html.twig', [
+            'books' => $books,
+        ]);
+    }
+
+    /**
+     * @Route("/book_sort_Name", name="name_asc")
+     */
+    public function sortNameAction()
+    {
+        $books = $this->getDoctrine()
+            ->getRepository('App\Entity\Book')
+            ->sortByName();
+        return $this->render('book/index.html.twig', [
+            'books' => $books,
+        ]);
+    }
+
+    /**
+     * @Route("/book_sort_Author", name="author_asc")
+     */
+    public function sortAuthorAction()
+    {
+        $books = $this->getDoctrine()
+            ->getRepository('App\Entity\Book')
+            ->sortByAuthor();
+        return $this->render('book/index.html.twig', [
+            'books' => $books,
+        ]);
+    }
+
+    /**
+     * @Route("/book_sort_Category", name="cate_asc")
+     */
+    public function sortCategoryAction()
+    {
+        $books = $this->getDoctrine()
+            ->getRepository('App\Entity\Book')
+            ->sortByCategory();
+        return $this->render('book/index.html.twig', [
+            'books' => $books,
+        ]);
+    }
 }

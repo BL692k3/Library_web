@@ -1,12 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\public",
     "\\src",
     "\\src\\Controller",
     "\\src\\Entity",
+    "\\src\\Form",
     "\\src\\Repository",
-    "\\templates"
+    "\\templates",
+    "\\templates\\book",
+    "\\templates\\search"
   ],
-  "SelectedNode": "\\src\\Controller",
   "PreviewInSolutionExplorer": false
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -11,6 +11,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href="\style.css" rel="stylesheet">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -23,22 +24,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+
                 </button>
                 <a class="navbar-brand" href="{{ path('book_index') }}">Book list</a>
             </div>
-            <div id="navbar" class="collapse navbar-collapse">
+            <div id="navbar" class="topnav" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ path('book_index') }}">Home</a></li>
                     <li><a href="{{ path('book_create') }}">Add book</a></li>
-                </ul>
+                </ul>   
             </div><!--/.nav-collapse -->
         </div>
     </nav>
-    <div class="container">
-    {{ render(controller(
-        'App\\Controller\\SearchController::searchBar'
-    )) }}
-    </div>
     <div class="container">
     <div class="row">
         <div class="col-md-12">
