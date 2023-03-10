@@ -92,6 +92,18 @@ class BookController extends AbstractController
     }
 
     /**
+     * Finds and displays a book entity.
+     *
+     * @Route("/book_anon/{id}", name="book_anon_show")
+     */
+    public function anonShowAction(Book $book)
+    {
+      return $this->render('book/anonShow.html.twig', array(
+        'book' => $book,
+      ));
+    }
+
+    /**
      * @Route("/book_create", name="book_create", methods={"GET","POST"})
      */
     public function createAction(Request $request)
