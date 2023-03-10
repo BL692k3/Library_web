@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Book</h1>
+<div class="bs-example" data-example-id="striped-table">
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <th>Id</th>
+      <td>{{ book.id }}</td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td>{{ book.name }}</td>
+    </tr>
+    <tr>
+      <th>Author</th>
+      <td>{{ book.author }}</td>
+    </tr>
+    <tr>
+      <th>Category</th>
+      <td>{{ book.category }}</td>
+    </tr>
+    <tr>
+      <th>Republish</th>
+      <td>{{ book.republish }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+  <ul>
+    <li>
+      <a href="{{ path('book_mem_index') }}">Back to the list</a>
+    </li>
+  </ul>
+{% endblock %}

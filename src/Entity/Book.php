@@ -29,15 +29,18 @@ class Book
      */
     private $Author;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $Category;
 
     /**
      * @ORM\Column(type="integer")
      */
     private $Republish;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="category")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
 
     public function getId(): ?int
     {
@@ -68,17 +71,6 @@ class Book
         return $this;
     }
 
-    public function getCategory(): ?string
-    {
-        return $this->Category;
-    }
-
-    public function setCategory(string $Category): self
-    {
-        $this->Category = $Category;
-
-        return $this;
-    }
 
     public function getRepublish(): ?int
     {
@@ -91,4 +83,17 @@ class Book
 
         return $this;
     }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
 }

@@ -25,6 +25,32 @@ class BookController extends AbstractController
     }
 
     /**
+     * @Route("/bookMember", name="book_mem_index")
+     */
+    public function memListAction()
+    {
+        $books = $this->getDoctrine()
+            ->getRepository('App\Entity\Book')
+            ->findAll();
+        return $this->render('book/memIndex.html.twig', [
+            'books' => $books,
+        ]);
+    }
+
+    /**
+     * @Route("/anon", name="anon_index")
+     */
+    public function listAnonAction()
+    {
+        $books = $this->getDoctrine()
+            ->getRepository('App\Entity\Book')
+            ->findAll();
+        return $this->render('book/anon.index.html.twig', [
+            'books' => $books,
+        ]);
+    }
+
+    /**
      * @Route("/book/delete/{id}", name="book_delete")
      */
     public function deleteAction($id)

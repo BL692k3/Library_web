@@ -1,0 +1,39 @@
+﻿{% extends 'anon.base.html.twig' %}
+{% block body %}
+
+    <div class="bs-example" data-example-id="striped-table">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><a href="{{ path('id_asc') }}">Sort by ID</a></th>
+                <th><a href="{{ path('name_asc') }}">Sort by name</a></th>
+                <th><a href="{{ path('author_asc') }}">Sort by author</a></th>
+                <th><a href="{{ path('cate_asc') }}">Sort by category</a></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Republish</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for book in books %}
+                <tr>
+                    <th scope="row">{{ book.id }}</th>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.category }}</td>
+                    <td>{{ book.republish }}</td>
+                    <td>
+                        <a href="{{ path('book_show', { 'id': book.id }) }}" class='btn btn-success'>View</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

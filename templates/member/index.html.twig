@@ -1,0 +1,27 @@
+﻿{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="bs-example" data-example-id="striped-table">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Phone number</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for member in members %}
+                <tr>
+                    <td>{{ member.id }}</td>
+                    <td>{{ member.username }}</td>
+                    <td>{{ member.password }}</td>
+                    <td>{{ member.phone_num }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

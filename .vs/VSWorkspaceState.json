@@ -1,15 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
+    "\\bin",
+    "\\config",
+    "\\config\\packages",
+    "\\migrations\\Version20230307175649",
     "\\src",
-    "\\src\\Controller",
-    "\\src\\Entity",
-    "\\src\\Form",
-    "\\src\\Repository",
+    "\\src\\Security",
     "\\templates",
-    "\\templates\\book",
-    "\\templates\\search"
+    "\\templates\\security",
+    "\\templates\\sign_up"
   ],
+  "SelectedNode": "\\src\\Form\\BookType.php",
   "PreviewInSolutionExplorer": false
 }

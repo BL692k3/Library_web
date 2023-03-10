@@ -3,7 +3,7 @@
 <center>
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <input type="submit" name="edit_book" value="Edit" class="btn btn-primary"/>
+    <button class="btn">{{ button_label|default('Register') }}</button>
 {{ form_end(form) }}
 </center>
 {% endblock %}

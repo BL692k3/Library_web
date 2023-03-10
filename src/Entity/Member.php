@@ -4,11 +4,13 @@ namespace App\Entity;
 
 use App\Repository\MemberRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=MemberRepository::class)
+ * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
  */
 class Member implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -22,7 +24,7 @@ class Member implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $email;
+    private $username;
 
     /**
      * @ORM\Column(type="json")
@@ -38,31 +40,24 @@ class Member implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $username;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $phone_num;
-
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $birth_date;
+    public $phone_num;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getEmail(): ?string
+    /**
+     * @deprecated since Symfony 5.3, use getUserIdentifier instead
+     */
+    public function getUsername(): string
     {
-        return $this->email;
+        return (string) $this->username;
     }
 
-    public function setEmail(string $email): self
+    public function setUsername(string $username): self
     {
-        $this->email = $email;
+        $this->username = $username;
 
         return $this;
     }
@@ -74,15 +69,7 @@ class Member implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
-    }
-
-    /**
-     * @deprecated since Symfony 5.3, use getUserIdentifier instead
-     */
-    public function getUsername(): string
-    {
-        return (string) $this->email;
+        return (string) $this->username;
     }
 
     /**
@@ -105,7 +92,7 @@ class Member implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @see PasswordAuthenticatedUserInterface
+     * @return string the hashed password for this user
      */
     public function getPassword(): string
     {
@@ -139,13 +126,6 @@ class Member implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function setUsername(string $username): self
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
     public function getPhoneNum(): ?string
     {
         return $this->phone_num;
@@ -154,18 +134,6 @@ class Member implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPhoneNum(string $phone_num): self
     {
         $this->phone_num = $phone_num;
-
-        return $this;
-    }
-
-    public function getBirthDate(): ?\DateTimeInterface
-    {
-        return $this->birth_date;
-    }
-
-    public function setBirthDate(\DateTimeInterface $birth_date): self
-    {
-        $this->birth_date = $birth_date;
 
         return $this;
     }

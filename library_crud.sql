@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2023 at 07:04 PM
+-- Generation Time: Mar 10, 2023 at 07:12 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -31,25 +31,41 @@ CREATE TABLE `book` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL,
-  `category` varchar(255) NOT NULL,
-  `republish` int(11) NOT NULL
+  `republish` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `book`
 --
 
-INSERT INTO `book` (`id`, `name`, `author`, `category`, `republish`) VALUES
-(1, 'The Pilgrim\'s Progress', 'John Bunyan', 'Novel', 4),
-(2, 'Midaq Alley', 'Naguib Mahfouz', 'Fictional', 1),
-(3, 'Journey to the Alcarria: Travels Through the Spanish Countryside', 'Camilo José Cela', 'Non-fiction', 7),
-(4, 'The Crime of Father Amaro', 'Eça de Queirós', 'Romance', 2),
-(5, 'To Kill a Mockingbird', 'Harper Lee', 'Historical', 3),
-(6, 'Melmoth the Wanderer', 'Charles Robert Maturin', 'Novel', 6),
-(7, 'Cry, the Beloved Country', 'Alan Paton', 'Political', 2),
-(8, 'Promise at Dawn', 'Romain Gary', 'Romance', 1),
-(9, 'Persuasion', 'Jane Austen', 'Novel', 3),
-(10, 'Story of the Eye', 'Georges Bataille', 'Adult', 8);
+INSERT INTO `book` (`id`, `name`, `author`, `republish`, `category_id`) VALUES
+(24, 'Testing', 'Test', 2, 2),
+(25, 'Testing2', 'Test', 3, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`) VALUES
+(1, 'Novel'),
+(2, 'Fictional'),
+(3, 'Non-fiction'),
+(4, 'Romance'),
+(5, 'Historical'),
+(6, 'Political'),
+(7, 'Adult');
 
 -- --------------------------------------------------------
 
@@ -68,7 +84,12 @@ CREATE TABLE `doctrine_migration_versions` (
 --
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20230307175649', '2023-03-07 18:58:36', 71);
+('DoctrineMigrations\\Version20230307175649', '2023-03-07 18:58:36', 71),
+('DoctrineMigrations\\Version20230310095721', '2023-03-10 10:57:34', 1643),
+('DoctrineMigrations\\Version20230310100125', '2023-03-10 11:01:29', 207),
+('DoctrineMigrations\\Version20230310100751', '2023-03-10 11:07:57', 246),
+('DoctrineMigrations\\Version20230310123120', '2023-03-10 13:31:27', 803),
+('DoctrineMigrations\\Version20230310123755', '2023-03-10 13:38:12', 66);
 
 -- --------------------------------------------------------
 
@@ -78,29 +99,19 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 
 CREATE TABLE `member` (
   `id` int(11) NOT NULL,
-  `email` varchar(180) NOT NULL,
   `roles` longtext NOT NULL COMMENT '(DC2Type:json)',
   `password` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `phone_num` varchar(255) NOT NULL,
-  `birth_date` date NOT NULL
+  `username` varchar(180) NOT NULL,
+  `phone_num` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`id`, `email`, `roles`, `password`, `username`, `phone_num`, `birth_date`) VALUES
-(1, 'haidang84@hotmail.com', '', '12345678', 'ribbontroubling', '(848)37923707', '2005-11-27'),
-(2, 'duymy.dinh97@yahoo.com', '', '12345678', 'southerngolden', '(848)39605209', '2005-07-21'),
-(3, 'luongthien.tran11@gmail.com', '', '12345678', 'injurychance', '(844)38243564', '2005-11-27'),
-(4, 'viendong.truong@gmail.com', '', '12345678', 'simplisticparent', '(848)38940662', '1986-05-17'),
-(5, 'kieumy_lam21@yahoo.com', '', '12345678', 'trainedput', '(848)38420541', '1995-05-08'),
-(6, 'quanglinh92@yahoo.com', '', '12345678', 'wheneverbadelynge', '(844)37199267', '2000-10-10'),
-(7, 'dinhphu59@yahoo.com', '', '12345678', 'globaldamaged', '(848)38943785', '1999-12-03'),
-(8, 'hanlam43@gmail.com', '', '12345678', 'cotermine', '08.39.163.120', '1984-03-31'),
-(9, 'vanhuong0@yahoo.com', '', '12345678', 'overlookedlice', '(848)38221758', '1994-02-07'),
-(10, 'thanhbinh_phan21@hotmail.com', '', '12345678', 'agilediscussion', '(848)39491199', '1980-02-15');
+INSERT INTO `member` (`id`, `roles`, `password`, `username`, `phone_num`) VALUES
+(14, '[]', '$2y$13$jvW1bbOxhVSgUkmPCam/Ieav8iNWl8BB1rPjHg3KGFucn2DlQ0I/e', 'baolam2k3', ''),
+(15, '[]', '$2y$13$NzqugKHpW1wlYm.SyDwoaOuj.pRtIChdriEZyatqPU7g0Pe2vxIf2', '12345', '');
 
 -- --------------------------------------------------------
 
@@ -142,6 +153,13 @@ CREATE TABLE `rent` (
 -- Indexes for table `book`
 --
 ALTER TABLE `book`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_CBE5A33112469DE2` (`category_id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -155,7 +173,7 @@ ALTER TABLE `doctrine_migration_versions`
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_70E4FA78E7927C74` (`email`);
+  ADD UNIQUE KEY `UNIQ_70E4FA78F85E0677` (`username`);
 
 --
 -- Indexes for table `messenger_messages`
@@ -183,13 +201,19 @@ ALTER TABLE `rent`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `messenger_messages`
@@ -212,8 +236,7 @@ ALTER TABLE `rent`
 --
 ALTER TABLE `rent`
   ADD CONSTRAINT `FK_2784DCC16A2B381` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`),
-  ADD CONSTRAINT `FK_2784DCC43676E6` FOREIGN KEY (`mem_id`) REFERENCES `member` (`id`),
-  ADD CONSTRAINT `FK_2784DCC7DF122CF` FOREIGN KEY (`mem_id_id`) REFERENCES `member` (`id`);
+  ADD CONSTRAINT `FK_2784DCC43676E6` FOREIGN KEY (`mem_id`) REFERENCES `member` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
