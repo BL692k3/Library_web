@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Book;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query\AST\Join;
 
 /**
  * @extends ServiceEntityRepository<Book>
@@ -106,7 +107,7 @@ class BookRepository extends ServiceEntityRepository
     public function sortByCategory()
     {
     return $this->createQueryBuilder('c')
-            ->orderBy('c.Category','ASC')
+            ->orderBy('c.category','ASC')
             ->getQuery()
             ->getResult()
         ;

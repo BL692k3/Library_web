@@ -80,6 +80,18 @@ class BookController extends AbstractController
     }
 
     /**
+     * Finds and displays a book entity.
+     *
+     * @Route("/book_mem/{id}", name="book_mem_show")
+     */
+    public function memShowAction(Book $book)
+    {
+      return $this->render('book/memShow.html.twig', array(
+        'book' => $book,
+      ));
+    }
+
+    /**
      * @Route("/book_create", name="book_create", methods={"GET","POST"})
      */
     public function createAction(Request $request)
@@ -187,6 +199,7 @@ class BookController extends AbstractController
         $books = $this->getDoctrine()
             ->getRepository('App\Entity\Book')
             ->sortByCategory();
+    
         return $this->render('book/index.html.twig', [
             'books' => $books,
         ]);
