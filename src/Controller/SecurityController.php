@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Member;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,8 +16,8 @@ class SecurityController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->getUser()) {
-            return $this->redirectToRoute('book_mem_index');
-        }
+                return $this->redirectToRoute('book_mem_index');
+        } 
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();

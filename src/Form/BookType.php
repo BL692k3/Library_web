@@ -22,7 +22,6 @@ class BookType extends AbstractType
                 'class' => Category::class,
                 'choice_label'  => 'name',
             ])
-
             ->add('republish', TextType::class)
         ;
     }

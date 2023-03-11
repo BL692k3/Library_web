@@ -21,6 +21,7 @@ security:
         main:
             lazy: true
             provider: app_user_provider
+            entry_point: App\Security\LoginFormAuthenticator
             custom_authenticator: App\Security\LoginFormAuthenticator
             logout:
                 path: app_logout
@@ -32,10 +33,24 @@ security:
 
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
-
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        # allow unauthenticated users to access
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/anon, roles: PUBLIC_ACCESS }
+        - { path: ^/logout, roles: PUBLIC_ACCESS }
+        # allow users to access
+        - { path: ^/bookMember, roles: ROLE_USER }
+        - { path: ^/book_mem/, roles: ROLE_USER } 
+        - { path: ^/book_sort_ID, roles: ROLE_USER } 
+        - { path: ^/book_sort_Name, roles: ROLE_USER } 
+        - { path: ^/book_sort_Author, roles: ROLE_USER } 
+        - { path: ^/book_sort_Category, roles: ROLE_USER } 
+        # Require authentication for all other admin routes
+        - { path: ^/book, roles: ROLE_ADMIN }
+        - { path: ^/member, roles: ROLE_ADMIN }
+        - { path: ^/book_create, roles: ROLE_ADMIN } 
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 

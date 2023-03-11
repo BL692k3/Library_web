@@ -172,7 +172,7 @@ class BookController extends AbstractController
         $books = $this->getDoctrine()
             ->getRepository('App\Entity\Book')
             ->sortByID();
-        return $this->render('book/index.html.twig', [
+        return $this->render('book/memIndex.html.twig', [
             'books' => $books,
         ]);
     }
@@ -185,7 +185,7 @@ class BookController extends AbstractController
         $books = $this->getDoctrine()
             ->getRepository('App\Entity\Book')
             ->sortByName();
-        return $this->render('book/index.html.twig', [
+        return $this->render('book/memIndex.html.twig', [
             'books' => $books,
         ]);
     }
@@ -198,7 +198,7 @@ class BookController extends AbstractController
         $books = $this->getDoctrine()
             ->getRepository('App\Entity\Book')
             ->sortByAuthor();
-        return $this->render('book/index.html.twig', [
+        return $this->render('book/memIndex.html.twig', [
             'books' => $books,
         ]);
     }
@@ -211,8 +211,7 @@ class BookController extends AbstractController
         $books = $this->getDoctrine()
             ->getRepository('App\Entity\Book')
             ->sortByCategory();
-    
-        return $this->render('book/index.html.twig', [
+        return $this->render('book/memIndex.html.twig', [
             'books' => $books,
         ]);
     }
